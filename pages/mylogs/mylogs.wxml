@@ -1,0 +1,77 @@
+<!--
+/*
+ * 
+ * WordPres版微信小程序
+ * author: jianbo
+ * organization: 守望轩  www.watch-life.net
+ * github:    https://github.com/iamxjb/winxin-app-watch-life.net
+ * 技术支持微信号：iamxjb
+ * 开源协议：MIT
+ * Copyright (c) 2017 https://www.watch-life.net All rights reserved.
+ *
+ */-->
+<import src="../../templates/common-list.wxml" />
+<import src="../../templates/copyright.wxml" />
+<import src="../../templates/login-popup.wxml" />
+<cu-custom bgColor="bg-{{skinStyle}} " isCustom="{{true}}">
+	<view slot="content">留言记录</view>
+</cu-custom>
+<view class="readlog-container">
+
+	<view class="usertool">
+		<text class="usertool-img cuIcon-exit lg text-{{skinStyle}}"   catchtap="exit"></text>
+ 	</view>
+
+	<view class="userinfo bg-{{skinStyle}}">
+		<image class="cu-avatar xl round margin-left" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+
+		<block wx:if="{{openid !=''}}">
+			<view class='userinfo_text_box'>
+				<text class="userinfo_nickname">{{userInfo.nickName}}</text>
+				<view class='userinfo_des_box'>
+					<view>
+						<text class="userinfo_des" decode="{{true}}">角色&nbsp;I&nbsp;{{userLevel.levelName}}</text>
+					</view>
+					<view class="update_btn_box">
+						<button class="update-button " open-type="getUserInfo" bindgetuserinfo="refresh">
+							<view class="login-inner">
+								<image class="userinfo-img" src="../../images/refresh.png"></image>更新信息
+							</view>
+						</button>
+					</view>
+				</view>
+
+			</view>
+		</block>
+		<view class="water">
+			<view class="water_1"></view>
+			<view class="water_2"></view>
+		</view>
+	</view>
+
+
+
+
+	<view class="list_container">
+		<view class="showerror" style="display:{{showerror}}">
+		<text class=" cuIcon-warn lg text-grey" style="height:50px;width:50px;font-size:48px;"   catchtap="exit"></text>
+			<view class="errortext">
+				暂时无法访问网络
+			 
+			</view>
+		</view>
+		<template is="login-popup" data="{{show: isLoginPopup, userInfo: userInfo}}"></template>
+
+		<view class="log-list">
+			<block wx:key="id" wx:for="{{readLogs}}">
+				<view class="log-items" index="{{index}}" id="{{item[0]}}" data-itemtype="{{item[2]}}" catchtap="redictDetail">
+					<text class="ren_mtie_xx"> <text class="ren_mtie{{index + 1}}">{{index + 1}}</text> {{item[1]}}</text>
+				</view>
+			</block>
+			<view class="log-items" style="display:{{shownodata}}">
+				<text class="log_tips">没有相关文章！</text>
+			</view>
+		</view>
+
+	</view>
+</view>

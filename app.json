@@ -1,0 +1,94 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/logs/logs",
+    "pages/page/page",
+    "pages/about/about",
+    "pages/list/list",
+    "pages/topic/topic",
+    "pages/readlog/readlog",
+    "pages/hot/hot",
+    "pages/pay/pay",
+    "pages/webpage/webpage",
+    "pages/comments/comments",
+    "pages/poster/poster",
+    "pages/user/user"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#118fff",
+    "navigationBarTitleText": "wpnicer",
+    "navigationBarTextStyle": "white",
+    "pageOrientation": "auto",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/lib/colorui/components/cu-custom"
+  },
+  "plugins": {
+    "weather": {
+      "version": "1.1.0",
+      "provider": "wx6578a11b90205be3"
+    }
+  },
+  "tabBar": {
+    "color": "#959595",
+    "selectedColor": "#118fff",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_on.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/topic/topic",
+        "iconPath": "/images/topic.png",
+        "selectedIconPath": "/images/topic_on.png",
+        "text": "专题"
+      },
+      {
+        "pagePath": "pages/hot/hot",
+        "iconPath": "/images/rank.png",
+        "selectedIconPath": "/images/rank_on.png",
+        "text": "排行"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "/images/my.png",
+        "selectedIconPath": "/images/my_on.png",
+        "text": "我的"
+
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+
+
+  "navigateToMiniProgramAppIdList": [
+    "wxa43aaa8416cdbd61",
+    "wxe9440e3d24b04152",
+    "wx39075d0bde24f9f7",
+    "wxc1771b619b83316b",
+    "wx074a216a7aabc30c",
+    "wx55ea6098e41af5c4",
+    "wx46926513e9b706d3",
+    "wxf5e9b64958a243b6",
+    "wxfd6bb7114494fd82"
+  ],
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于获取本地天气信息"
+    }
+  }
+
+}

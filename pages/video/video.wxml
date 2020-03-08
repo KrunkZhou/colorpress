@@ -1,0 +1,137 @@
+<!--/*
+ * 
+ * WordPres版微信小程序
+ * author: jianbo
+ * organization: 守望轩  www.watch-life.net
+ * github:    https://github.com/iamxjb/winxin-app-watch-life.net
+ * 技术支持微信号：iamxjb
+ * 开源协议：MIT
+ *Copyright (c) 2017 https://www.watch-life.net All rights reserved.
+ * 
+ */-->
+
+<import src="../../lib/wxParse/wxParse.wxml" />
+<import src="../../templates/login-popup.wxml" />
+<import src="../../templates/loading.wxml" />
+<import src="../../templates/modal-view/modal-view.wxml" />
+
+
+
+<cu-custom bgColor="bg-{{skinStyle}} navborder" isCustom="{{true}}">
+	<view slot="content"> {{detail.category_name}}</view>
+</cu-custom>
+
+
+
+
+
+<!-- 文章 -->
+<view class="detail-content" style="display:{{display}}">
+	<!-- 标题 -->
+
+	<!-- 文章正文 -->
+	<view class="entry-summary" id="entry-summary">
+
+		<!-- 音频 -->
+
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+
+		<view class="cu-bar3  ">
+			<text class="text-cut2">{{detail.title.rendered}}</text>
+			<view class="text-gray text-sm flex ">
+				{{detailDate}}
+
+				<view class="text-gray text-sm" style="padding-left:20rpx;">
+					<text class="cuIcon-attentionfill margin-lr-xs"></text> {{detail.pageviews}}
+
+				</view>
+			</view>
+		</view>
+		<!-- 阅读更多 -->
+		<view class="detail-read-more" wx:if="{{detailSummaryHeight != ''}}" style="background-image: url({{detail.post_thumbnail_image}}); background-size: 100% 388rpx;">
+			<view class="detail-readmore-mask" bindtap="readMore">
+				<image class="detail-readmore-lock" src="../../images/uploads/lock.png"></image>
+				<text class="detail-readmore-btn" >精彩内容将在观看完视频广告后播放</text>
+				<text class="detail-readmore-btn" style="top:220rpx!important;" >点击按钮立即解锁</text>
+			</view>
+		</view>
+
+	</view>
+
+	<!-- 点个赞 -->
+	<view class="likePost" style="display:{{displayLike}}">
+		<view class="subTitle">点个赞</view>
+		<view class="subTitle_line"></view>
+
+		<view class="likeTitle">
+			<text>{{likeCount}}人已赞</text>
+		</view>
+
+		<view class="like-btn-icon">
+			<text class="cuIcon-likefill text-{{skinStyle}} img-like" id="liketop" catchtap="clickLike"></text>
+		</view>
+		<view class="likeText">
+			<block wx:key="id" wx:for="{{likeList}}">
+				<image src="{{item}}" class="like-gravatar"></image>
+			</block>
+		</view>
+	</view>
+
+	<view class="up-down-post1 bg-{{skinStyle}}">
+		<!-- 上一篇 -->
+		<view class="up-post1">
+			本站所有资源为网友分享上传，如侵犯您的权益请联系微信：poisonkid。
+		</view>
+		<!-- 下一篇 -->
+
+	</view>
+
+
+	<!-- 小程序广告 -->
+	<view class="ad-box-video" wx:if="{{detail.videoAdId !='' && detail.detailAd=='1' && detailAdsuccess}}">
+		<ad unit-id="{{detail.videoAdId}}" ad-intervals="30" ad-type="video" binderror="adbinderror"></ad>
+	</view>
+
+
+	<!-- 猜你喜欢 -->
+	<view wx:if="{{postList.length != 0}}" style="display:{{display}}">
+
+
+		<block wx:key="id" wx:for="{{postList}}">
+			<navigator class="entry-summary " style="margin-bottom:50rpx" url="../video/video?id={{item.id}}" open-type="redirect" hover-class="relatedNavigator">
+
+				<view class="wxParse-video">
+					<image class="play" src="../../images/uploads/plays.png"></image>
+					<image class="wxParse-video-image" mode="aspectFill" src="{{item.post_thumbnail_image}}"></image>
+				</view>
+
+				<view class="cu-bar3  ">
+					<text class="text-cut2">{{item.title.rendered}}</text>
+
+				</view>
+			</navigator>
+		</block>
+
+
+
+
+
+
+
+	</view>
+</view>
+
+
+
+<view style="height:100rpx;margin-bottom:80rpx;"></view>
+<!-- 无法访问网络时 -->
+<view class="showerror" style="display:{{showerror}}">
+	<text class=" cuIcon-warn lg text-grey" style="height:50px;width:50px;font-size:48px;"   catchtap="exit"></text>
+	<view class="errortext">{{errMessage}}</view>
+</view>
+
+ <view class="bounce answerbtn borderShowdow bg-{{skinStyle}} "  >
+	<image src="../../images/sharebtn.png"></image>
+	<text>一 起 看</text>
+	  <button openType="share" plain="true">    </button>
+</view>

@@ -1,0 +1,49 @@
+<cu-custom bgColor="bg-{{skinStyle}} navborder" isCustom="{{true}}">
+  <view slot="content">更新日志</view>
+</cu-custom>
+<view class="cu-timeline">
+  <view class="cu-item text-{{skinStyle}}">
+    <view class="bg-{{skinStyle}} content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-{{skinStyle}}">v1.1.0</view>
+        <view class="cu-tag line-white">coming soon</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.自定义底部导航</view>
+        <view>2.增加日间/夜间模式</view>
+        <view>3.增加皮肤切换功能</view>
+        <view>4.多端版本</view>
+        <view>5.其他优化</view>
+      </view>
+    </view>
+  </view>
+   <view class="cu-item text-{{skinStyle}}">
+    <view class="bg-{{skinStyle}} content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-{{skinStyle}}">v1.0.1</view>
+        <view class="cu-tag line-white">2020/01/29</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.引入colorUI</view>
+        <view style='font-size:22rpx;margin-left:30rpx;'>全局:全屏顶部导航栏 </view>
+        <view style='font-size:22rpx;margin-left:30rpx;'>首页:轮播图 列表页 搜索框</view>
+        <view style='font-size:22rpx;margin-left:30rpx;'>分类页：分类列表样式</view>
+        <view style='font-size:22rpx;margin-left:30rpx;'>排行榜：顶部tab</view>
+        <view style='font-size:22rpx;margin-left:30rpx;'>我的：文章记录样式 功能样式 </view>
+        <view style='font-size:22rpx;margin-left:30rpx;'>详情页：顶部样式 评论栏样式</view>
+        <view>2.优化海报样式</view>
+        <view>3.优化图标</view>
+        <view>4.增加反馈，收集用户建议意见</view>
+        <view>5.增加天气，根据定位显示天气信息</view>
+        <view>6.增加引导，引导用户添加到我的小程序</view>
+        <view>7.增加推送，可向用户群发消息</view>
+        <view>8.增加统计，收集更完善的数据</view>
+        <view>9.去除体验不好的订阅功能</view>
+        <view>10.去除个人不能使用的赞赏</view>
+
+      </view>
+    </view>
+  </view>
+  
+ 
+</view>

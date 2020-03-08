@@ -1,0 +1,30 @@
+<cu-custom bgColor=" bg-{{skinStyle}} navborder">
+	<view slot="content">专题分类</view>
+</cu-custom>
+<scroll-view style="height:100%;" scroll-y="true" lower-threshold="100rpx">
+	<view class="topic-common-list" style='padding-top:20rpx;'>
+		<block wx:key="id" wx:for="{{categoriesList}}">
+			<view class="list-item" data-item="{{item.name}}" data-id="{{item.id}}" bindtap="redictIndex">
+
+				<image src="{{item.category_thumbnail_image}}" class="cover"></image>
+
+
+				<view class="content-title" data-item="{{item.name}}" data-id="{{item.id}}" bindtap="redictIndex">
+					<view class="topic-name">
+						<text>{{item.name}}</text>
+					</view>
+					<view class='content-titlebg bg-{{skinStyle}}'></view>
+				</view>
+				<view class="content-brief" data-item="{{item.name}}" data-id="{{item.id}}">
+					<text>{{item.description}}</text>
+
+				</view>
+
+			</view>
+
+		</block>
+	</view>
+
+</scroll-view>
+
+<!--底部内容  -->

@@ -1,0 +1,102 @@
+<!--
+/*
+ * 
+ * WordPres版微信小程序
+ * author: jianbo
+ * organization: 守望轩  www.watch-life.net
+ * github:    https://github.com/iamxjb/winxin-app-watch-life.net
+ * 技术支持微信号：iamxjb
+ * 开源协议：MIT
+ * Copyright (c) 2017 https://www.watch-life.net All rights reserved.
+ *
+ */-->
+<import src="../../templates/common-list.wxml" />
+<import src="../../templates/copyright.wxml" />
+
+
+<cu-custom bgColor="bg-{{skinStyle}}">
+	<view slot="content">排行榜</view>
+</cu-custom>
+<scroll-view scroll-x class="bg-{{skinStyle}} flex nav text-center  navborder">
+	<block wx:for="{{topBarItems}}" wx:key="id">
+		<view class="cu-item text-df flex-sub {{item.selected ? 'tab-Selected': '' }}" catchtap="onTapTag" id="{{item.id}}">
+			<text class="cuIcon-messagefill"></text> {{item.name}}
+		</view>
+
+	</block>
+
+</scroll-view>
+
+<view class="container">
+	<view class="showerror" style="display:{{showerror}}">
+		<text class=" cuIcon-warn lg text-grey" style="height:50px;width:50px;font-size:48px;"   catchtap="exit"></text>
+
+		<view class="errortext">
+			暂时无法访问网络
+			<view class="">
+				<button class="more-button" bindtap="reload" size="mini" bindtap="reload">重新加载</button>
+			</view>
+		</view>
+	</view>
+
+	<view style="display:{{showallDisplay}}">
+
+
+		<block wx:key="id" wx:for="{{postsList}}">
+			<view class="cu-card article {{isCard?'no-card':''}}" index="{{index}}" id="{{item.post_id}}" bindtap="redictDetail">
+
+				<view class="cu-item shadow">
+
+					<view class="content" wx:if="{{item.post_thumbnail_image}}">
+						<view class="contentimg">
+
+ 
+							<image class="contentimage" src="{{item.post_thumbnail_image}}" mode="aspectFill"></image>
+						</view>
+						<view class="desc">
+							<view class="text-content">
+								{{item.post_title}}
+							</view>
+							<view>
+								<view class="text-gray text-sm flex " style="	justify-content: space-between; ">
+									{{item.post_date}}
+
+									<view class="text-gray text-sm" style="padding-left:20rpx;">
+										<text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.pageviews}}
+										<text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.like_count}}
+										<text class="cuIcon-messagefill margin-lr-xs"></text> {{item.comment_total}}
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="content" wx:else>
+
+						<view class="desc">
+							<view class="text-content">
+								{{item.post_title}}
+							</view>
+							<view style="margin-top:20rpx; ">
+								<view class="text-gray text-sm flex " style="	justify-content: space-between; ">
+									发表于{{item.post_date}}
+
+									<view class="text-gray text-sm" style="padding-left:20rpx;">
+										<text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.pageviews}}
+										<text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.like_count}}
+										<text class="cuIcon-messagefill margin-lr-xs"></text> {{item.comment_total}}
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+
+
+	</view>
+
+	<view class="copyright" style="display:{{floatDisplay}}">
+		<template is="tempCopyright" data="{{webSiteName:webSiteName,domain:domain}}" />
+	</view>
+</view>

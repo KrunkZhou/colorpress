@@ -1,0 +1,3 @@
+<template name="tempCopyright">
+<view>  © 2019 {{webSiteName}} {{domain}} </view>
+</template>

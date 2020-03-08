@@ -1,0 +1,222 @@
+<template name="tempCommonList">
+	<block wx:for="{{postsList}}" wx:key="id">
+		<view class="cu-card case  " index="{{index}}" id="{{item.id}}" bindtap="redict{{item.format}}" wx:if="{{index%6==2}}">
+			<view class="cu-item shadow" wx:if="{{item.post_thumbnail_image == null || item.post_thumbnail_image == ''}}">
+
+				<view class="content">
+					<view class="desc">
+						<view class="text-content">
+							{{item.title.rendered}}
+						</view>
+						<view style="margin-top:20rpx; ">
+							<view class="text-gray text-sm flex " style="	justify-content: space-between; ">
+								发表于{{item.post_date}}
+
+								<view class="text-gray text-sm" style="padding-left:20rpx;">
+									<text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.pageviews}}
+									<text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.like_count}}
+									<text class="cuIcon-messagefill margin-lr-xs"></text> {{item.total_comments}}
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+
+			<view class="cu-item shadow" wx:else>
+				<view class="image shadow">
+					<image class="play{{item.format}}lg" src="../../images/uploads/plays.png"></image>
+					<image src="{{item.post_thumbnail_image}}" mode="aspectFill"></image>
+					<view class="cu-tag bg-white">{{item.category_name}}</view>
+					<view class="cu-bar bg-shadeBottom">
+						<text class="text-cut1">{{item.title.rendered}}</text>
+						<view class="content1 flex-sub" style='width:630rpx;'>
+							<view class="text-white text-sm flex ">
+								{{item.date}}
+								<view class="text-white text-sm">
+									<text class="cuIcon-attentionfill margin-left-xl"></text> {{item.pageviews}}
+
+								</view>
+							</view>
+						</view>
+					</view>
+
+
+				</view>
+
+			</view>
+		</view>
+
+
+		<view class="cu-card case " index="{{index}}" wx:elif="{{index%6==5 && item.listAdId !=''  && listAdsuccess }}">
+			<view class="cu-item shadow">
+				<ad unit-id="{{item.videoAdId}}" ad-type="video" ad-theme="white" binderror="adbinderror"></ad>
+			</view>
+		</view>
+
+
+		<view class="cu-card article  " index="{{index}}" id="{{item.id}}" bindtap="redict{{item.format}}" wx:else>
+			<view class="cu-item shadow">
+
+				<view class="content" wx:if="{{item.post_thumbnail_image}}">
+					<view class="contentimg">
+
+						<image class="play{{item.format}}" src="../../images/uploads/plays.png"></image>
+
+						<image class="contentimage" src="{{item.post_thumbnail_image}}" mode="aspectFill"></image>
+					</view>
+					<view class="desc">
+						<view class="text-content">
+							{{item.title.rendered}}
+						</view>
+						<view>
+							<view class="text-gray text-sm flex " style="	justify-content: space-between; ">
+								{{item.date}}
+
+								<view class="text-gray text-sm" style="padding-left:20rpx;">
+									<text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.pageviews}}
+									<text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.like_count}}
+									<text class="cuIcon-messagefill margin-lr-xs"></text> {{item.total_comments}}
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="content" wx:else>
+
+					<view class="desc">
+						<view class="text-content">
+							{{item.title.rendered}}
+						</view>
+						<view style="margin-top:20rpx; ">
+							<view class="text-gray text-sm flex " style="	justify-content: space-between; ">
+								发表于{{item.post_date}}
+
+								<view class="text-gray text-sm" style="padding-left:20rpx;">
+									<text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.pageviews}}
+									<text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.like_count}}
+									<text class="cuIcon-messagefill margin-lr-xs"></text> {{item.total_comments}}
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+
+		</view>
+
+
+	</block>
+
+</template>
+
+<template name="tempCommonList1">
+
+	<view class="cu-page">
+		<block wx:for="{{postsList}}" wx:key="id">
+
+
+
+
+			<view class="cu-card1 " index="{{index}}" id="{{item.id}}" bindtap="redict{{item.format}}">
+
+
+				<text class="cu-cate1"> {{item.category_name}}</text>
+				<image class="content1img" src="{{item.post_medium_image}}" mode="aspectFill"></image>
+				<view class="content1desc">
+					<view class="text-content1">
+						{{item.title.rendered}}
+					</view>
+					<view>
+						<view class="text-gray text-sm flex " style="	justify-content: space-between;margin:0 10rpx;">
+							{{item.date}}
+
+							<view class="text-gray text-sm" style="padding-left:20rpx;">
+								<text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.pageviews}}
+
+							</view>
+						</view>
+					</view>
+
+				</view>
+
+
+
+			</view>
+		</block>
+	</view>
+</template>
+<template name="tempCommonList2">
+
+
+	<block wx:for="{{postsList}}" wx:key="id">
+
+
+
+		<view wx:if="{{index%4==3&& item.listAdId !=''  && listAdsuccess}}">
+			<view class="cu-card case " index="{{index}}">
+				<view class="cu-item shadow">
+					<ad unit-id="{{item.videoAdId}}" ad-type="video" ad-theme="white" binderror="adbinderror"></ad>
+				</view>
+			</view>
+		</view>
+		<view wx:else>
+
+			<view class="cu-card case {{isCard?'no-card':''}}" index="{{index}}" id="{{item.id}}" bindtap="redict{{item.format}}">
+				<view class="cu-item shadow">
+					<view class="image shadow">
+						<image src="{{item.post_medium_image}}" mode="aspectFill"></image>
+						<view class="cu-tag1 bg-blue">{{item.category_name}}</view>
+						<view class="cu-bar1 bg-shadeBottom">
+							<text class="text-cut1">{{item.title.rendered}}</text>
+
+						</view>
+
+
+					</view>
+
+				</view>
+			</view>
+
+		</view>
+	</block>
+
+</template>
+<template name="tempCommonList3">
+
+
+	<block wx:for="{{postsList}}" wx:key="id">
+
+
+
+		<view wx:if="{{index%4==3&& item.listAdId !=''  && listAdsuccess}}">
+			<view class="cu-card case " index="{{index}}">
+				<view class="cu-item shadow">
+					<ad unit-id="{{item.videoAdId}}" ad-type="video" ad-theme="white" binderror="adbinderror"></ad>
+				</view>
+			</view>
+		</view>
+		<view wx:else>
+
+			<view class="cu-card case3 {{isCard?'no-card':''}}" index="{{index}}" id="{{item.id}}" bindtap="redict{{item.format}}">
+
+				<view class="cu-item3image  ">
+					<image class="play{{item.format}}lg" src="../../images/plays.png"></image>
+					<image src="{{item.post_medium_image}}" mode="aspectFill"></image>
+				</view>
+				<view class="cu-tag3 bg-blue">{{item.category_name}}</view>
+				<view class="cu-bar3  ">
+					<text class="text-cut2">{{item.title.rendered}}</text>
+
+				</view>
+
+
+
+
+
+			</view>
+
+		</view>
+	</block>
+
+</template>

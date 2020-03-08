@@ -1,0 +1,259 @@
+/**app.wxss**/
+.culists {
+  border-radius: 10rpx;
+  margin: 20rpx;
+  width: 710rpx;
+  height: 180rpx;
+  position: absolute;
+  top: 280rpx;
+  z-index: 9;
+  box-shadow: 0 10rpx 30rpx 0 rgba(61, 61, 61, 0.1);
+
+}
+
+.bars {
+  opacity: 0;
+  width: 750rpx;
+  height: 90rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+/*波浪*/
+.water {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+  z-index: 1;
+}
+
+.water_1 {
+  background: url(https://app.m730.net/hybrid/ui/water-1.svg) repeat-x;
+  background-size: 600px;
+  -webkit-animation: wave-animation-1 3.5s infinite linear;
+  animation: wave-animation-1 3.5s infinite linear;
+}
+
+.water_2 {
+  top: 5px;
+  background: url(https://app.m730.net/hybrid/ui/water-2.svg) repeat-x;
+  background-size: 600px;
+  -webkit-animation: wave-animation-2 6s infinite linear;
+  animation: wave-animation-2 6s infinite linear;
+}
+
+.water_1,
+.water_2 {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+}
+
+@keyframes wave-animation-1 {
+  0% {
+    background-position: 0 top
+  }
+
+  100% {
+    background-position: 600px top
+  }
+}
+
+@keyframes wave-animation-2 {
+  0% {
+    background-position: 0 top
+  }
+
+  100% {
+    background-position: 600px top
+  }
+}
+
+.lg {
+  font-size: 36rpx;
+}
+
+.user-hearder {
+
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.readlog-container {
+  background-color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  height: 310rpx;
+  width: 100%;
+}
+
+.userinfo_text_box {
+  margin-left: 40rpx;
+  color: #fff;
+}
+
+.userinfo_nickname {
+  font-size: 48rpx;
+  font-weight: 800;
+  line-height: 1;
+  display: block;
+}
+
+.userinfo_des_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.userinfo_des {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.update_btn_box {
+  margin-left: 20rpx;
+}
+
+.usertool {
+
+  height: 60rpx;
+  text-align: right;
+  position: absolute;
+  top: 120rpx;
+  right: 120rpx;
+  
+}
+ 
+
+.userinfo-avatar {
+  width: 148rpx;
+  height: 148rpx;
+  margin-left: 48rpx;
+  /* border-radius: 50%; */
+}
+
+.userinfo-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.update_btn_box {
+  font-size: 20rpx;
+  color: #fff;
+}
+
+.update-button {
+  border-radius: 24rpx;
+  line-height: 42rpx;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0 16rpx;
+
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #fff;
+}
+
+.update-button::after {
+  border: none;
+}
+
+.top-bar {
+  height: 100rpx;
+  background: #fff;
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0px 4px 8px #f7f7f7;
+  display: flex;
+}
+
+.top-bar-item {
+  flex: 1;
+  display: inline-block;
+  background: #fff;
+  color: #777;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+
+.top-bar-item-Selected {
+  border-bottom: 1px solid #0081ff;
+  font-weight: bold;
+  color: #0081ff;
+}
+
+/* 文章列表样式 */
+.list_container {
+  margin: 28rpx 48rpx 48rpx 48rpx;
+}
+
+.dec {
+  margin-top: 50rpx;
+}
+
+.dec-text {
+  font-size: 25rpx;
+  color: #757575;
+}
+
+.log-list {
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 5rpx; */
+}
+
+.log-items {
+  margin-top: 20rpx;
+}
+
+.log-text {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #777;
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.log_tips {
+  text-align: center;
+  color: #c4c4c4;
+  font-size: 30rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.cu-form-group {
+  position: relative;
+  display: flex;
+  padding: 0 30rpx;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  min-height: 100rpx;
+  justify-content: space-between;
+}
